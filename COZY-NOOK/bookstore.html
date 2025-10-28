@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyNook - Bookstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="bookstore-page">
+    <header>
+        <img src="cozy_logo_nook.png" alt="CozyNook Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="florist.html">Florist</a>
+            <a href="bookstore.html" class="active">Bookstore</a>
+            <a href="cafe.html">Cafe</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero bookstore-hero">
+            <h1>Your Cozy Reading Corner</h1>
+            <p class="hero-description">Get lost in stories while keeping track of your reading time</p>
+        </section>
+
+        <div class="pomodoro-card" onclick="window.location.href='pomodoro.html'">
+            <div class="strawberry-icon">🍓</div>
+            <h3>Reading Timer</h3>
+            <p>Click to start your reading session</p>
+        </div>
+
+        <div class="pomodoro-fullscreen" id="pomodoroFullscreen">
+            <button class="close-fullscreen">×</button>
+            <div class="timer-container">
+                <div class="timer-progress"></div>
+                <div class="timer-display">25:00</div>
+                <div class="timer-label">Reading Time</div>
+            </div>
+            <div class="timer-controls">
+                <button class="timer-btn" id="skipBtn">Skip</button>
+                <button class="timer-btn start">Start</button>
+                <button class="timer-btn reset">Reset</button>
+            </div>
+        </div>
+
+        <section class="book-shelves">
+            <h2>Current Favorites</h2>
+            <div class="shelf-grid">
+                <!-- Book cards will be added here via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+    <script src="bookstore-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CozyNook Florist</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="florist-page">
+
+<header>
+  <img src="cozy_logo_nook.png" alt="CozyNook Logo" class="logo" />
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="florist.html" class="active">Florist</a>
+    <a href="bookstore.html">Bookstore</a>
+    <a href="cafe.html">About</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="card" id="flowersCard">
+    <h2>Choose Flowers</h2>
+    <div class="flowers-grid" id="flowersGrid">
+      <!-- Flower cards -->
+    </div>
+  </section>
+
+  <section class="card" id="bouquetCard">
+    <h2>Your Bouquet</h2>
+    <div class="selected-flowers" id="selectedFlowers"></div>
+  </section>
+
+  <section class="card" id="wrappingCard">
+    <h2>Select Wrapping</h2>
+    <div id="wrappingGrid">
+      <!-- Wrapping options added by JS -->
+    </div>
+  </section>
+
+  <section class="card" id="costCard">
+    <h2>Cost & Order</h2>
+    <p id="costSummary">Coins Left: 30</p>
+    <button class="confirm-btn" id="confirmBtn" disabled>Place Order</button>
+  </section>
+
+</main>
+
+<footer>
+  <a href="about.html">About</a> | 
+  <a href="contact.html">Contact</a> | 
+  <a href="privacy.html">Privacy Policy</a>
+</footer>
+
+<script src="florist-script.js"></script>
+</body>
+</html>
