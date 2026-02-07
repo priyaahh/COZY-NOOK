@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cozy-dark: #0A3323;
+  --color-cozy-moss: #839958;
+  --color-cozy-beige: #F7F4D5;
+  --color-cozy-rosy: #D3968C;
+  --color-cozy-midnight: #105666;
+  --color-cozy-cream: #FDFBF7;
+  --color-cozy-gray: #C1BEB9;
+  --color-cozy-gold: #75824D;
+  --color-cozy-pale-silver: #DBBABF;
+  --color-cozy-china-rose: #B05276;
+  --color-cozy-burgundy: #7D0531;
+
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-serif: 'Playfair Display', serif;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-cozy-beige text-cozy-dark font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+/* Components */
+@layer components {
+  .btn-primary {
+    @apply bg-cozy-moss hover:bg-cozy-dark text-white px-4 py-2 rounded-lg transition-colors duration-300;
+  }
+}
