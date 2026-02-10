@@ -1,63 +1,70 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Coffee, Cookie, GlassWater, Plus, ShoppingBag } from 'lucide-react';
+import expresso from './menuimages/expresso.jpg';
+import cappuccino from './menuimages/cappucino.jpg';
+import latte from './menuimages/latte.jpg';
+import chocoChipCookies from './menuimages/ChocoChipCookies.jpg';
+import oatmealRaisinCookies from './menuimages/OatmealRaisinCookies.jpg';
+import matchaLatte from './menuimages/MatchaLatte.jpg';
+import berryLemonade from './menuimages/BerryLemonade.jpg';
 
 const MENU_ITEMS = [
     {
         id: 'c1',
         name: 'Espresso',
         description: 'Rich, bold, and purely authentic Italian espresso.',
-        price: '$3.50',
+        price: '₹250',
         category: 'coffee',
-        image: '☕'
+        image: expresso
     },
     {
         id: 'c2',
         name: 'Cappuccino',
         description: 'Espresso with steamed milk and a thick layer of foam.',
-        price: '$4.50',
+        price: '₹300',
         category: 'coffee',
-        image: '🍵'
+        image: cappuccino
     },
     {
         id: 'c3',
         name: 'Latte',
         description: 'Espresso with steamed milk and a light layer of foam.',
-        price: '$4.75',
+        price: '₹320',
         category: 'coffee',
-        image: '🥛'
+        image: latte
     },
     {
         id: 'k1',
         name: 'Choc Chip Cookie',
         description: 'Warm, gooey, and packed with premium chocolate chunks.',
-        price: '$2.50',
+        price: '₹150',
         category: 'cookies',
-        image: '🍪'
+        image: chocoChipCookies
     },
     {
         id: 'k2',
         name: 'Oatmeal Raisin',
         description: 'Chewy oatmeal cookie with sweet raisins and cinnamon.',
-        price: '$2.25',
+        price: '₹120',
         category: 'cookies',
-        image: '🍘'
+        image: oatmealRaisinCookies
     },
     {
         id: 'd1',
         name: 'Iced Matcha',
         description: 'Premium ceremonial grade matcha served over ice.',
-        price: '$5.00',
+        price: '₹350',
         category: 'drinks',
-        image: '🥤'
+        image: matchaLatte
     },
     {
         id: 'd2',
         name: 'Berry Lemonade',
         description: 'Freshly squeezed lemonade with mixed berry compote.',
-        price: '$4.00',
+        price: '₹280',
         category: 'drinks',
-        image: '🍹'
+        image: berryLemonade
     }
 ];
 
@@ -128,8 +135,12 @@ const Cafe = () => {
                                 key={item.id}
                                 className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
                             >
-                                <div className="text-6xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">
-                                    {item.image}
+                                <div className="h-48 mb-4 overflow-hidden rounded-xl">
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                    />
                                 </div>
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="text-xl font-serif text-cozy-dark">{item.name}</h3>

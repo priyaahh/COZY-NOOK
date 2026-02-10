@@ -4,12 +4,12 @@ import { Check, RefreshCw, Heart } from 'lucide-react';
 import clsx from 'clsx';
 
 const FLOWERS = [
-    { id: 'f1', name: 'Red Rose', color: 'bg-red-500', emoji: '🌹', price: 5 },
-    { id: 'f2', name: 'Sunflower', color: 'bg-yellow-400', emoji: '🌻', price: 4 },
-    { id: 'f3', name: 'Tulip', color: 'bg-pink-400', emoji: '🌷', price: 3 },
-    { id: 'f4', name: 'Daisy', color: 'bg-white', emoji: '🌼', price: 2 },
-    { id: 'f5', name: 'Lavender', color: 'bg-purple-400', emoji: '🪻', price: 3 },
-    { id: 'f6', name: 'Hibiscus', color: 'bg-pink-500', emoji: '🌺', price: 4 },
+    { id: 'f1', name: 'Red Rose', color: 'bg-red-500', emoji: '🌹', price: 50 },
+    { id: 'f2', name: 'Sunflower', color: 'bg-yellow-400', emoji: '🌻', price: 40 },
+    { id: 'f3', name: 'Tulip', color: 'bg-pink-400', emoji: '🌷', price: 30 },
+    { id: 'f4', name: 'Daisy', color: 'bg-white', emoji: '🌼', price: 20 },
+    { id: 'f5', name: 'Lavender', color: 'bg-purple-400', emoji: '🪻', price: 30 },
+    { id: 'f6', name: 'Hibiscus', color: 'bg-pink-500', emoji: '🌺', price: 40 },
 ];
 
 const WRAPPERS = [
@@ -34,7 +34,7 @@ const FlowerShop = () => {
         setBouquet(bouquet.filter(f => f.uniqueId !== uniqueId));
     };
 
-    const totalPrice = bouquet.reduce((acc, curr) => acc + curr.price, 0) + 5; // +5 base fee
+    const totalPrice = bouquet.reduce((acc, curr) => acc + curr.price, 0) + 50; // +50 base fee
 
     return (
         <div className="min-h-screen pt-24 px-4 bg-cozy-beige pb-20">
@@ -77,7 +77,7 @@ const FlowerShop = () => {
                                     >
                                         <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">{flower.emoji}</div>
                                         <div className="font-serif text-cozy-dark">{flower.name}</div>
-                                        <div className="text-sm text-gray-400">${flower.price}</div>
+                                        <div className="text-sm text-gray-400">₹{flower.price}</div>
                                     </button>
                                 ))}
                             </motion.div>
@@ -111,7 +111,7 @@ const FlowerShop = () => {
                     <div className="mt-8 pt-8 border-t">
                         <div className="flex justify-between items-center text-xl font-serif text-cozy-dark mb-6">
                             <span>Total</span>
-                            <span>${totalPrice.toFixed(2)}</span>
+                            <span>₹{totalPrice}</span>
                         </div>
                         <button className="w-full py-4 bg-cozy-dark text-white rounded-xl font-medium hover:bg-opacity-90 transition-colors flex justify-center items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" /> Finish Bouquet
