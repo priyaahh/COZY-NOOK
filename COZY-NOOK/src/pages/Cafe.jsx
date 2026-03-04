@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Coffee, Cookie, GlassWater, Plus, ShoppingBag } from 'lucide-react';
+import { Coffee, Cookie, GlassWater, Plus, ShoppingBag, Calculator as CalculatorIcon } from 'lucide-react';
+import Calculator from '../components/Calculator';
 import expresso from './menuimages/expresso.jpg';
 import cappuccino from './menuimages/cappucino.jpg';
 import latte from './menuimages/latte.jpg';
@@ -100,6 +101,9 @@ const CategoryFilter = ({ active, onSelect }) => {
 const Cafe = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [cart, setCart] = useState([]);
+    const [showCalculator, setShowCalculator] = useState(false);
+
+    const toggleCalculator = () => setShowCalculator(!showCalculator);
 
     const filteredItems = activeCategory === 'all'
         ? MENU_ITEMS
@@ -108,6 +112,11 @@ const Cafe = () => {
     const addToCart = (item) => {
         setCart([...cart, item]);
     };
+
+    const totalPrice = cart.reduce((total, item) => {
+        const price = parseFloat(item.price.replace('₹', ''));
+        return total + price;
+    }, 0);
 
     return (
         <div className="min-h-screen pt-24 px-4 bg-cozy-beige pb-20">
@@ -158,6 +167,20 @@ const Cafe = () => {
                     </AnimatePresence>
                 </motion.div>
 
+                <AnimatePresence>
+                    {showCalculator && <Calculator onClose={() => setShowCalculator(false)} />}
+                </AnimatePresence>
+
+                {/* Floating Action Button for Calculator */}
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={toggleCalculator}
+                    className="fixed bottom-24 right-8 bg-white text-cozy-dark p-4 rounded-full shadow-xl z-40 border border-cozy-rosy/20"
+                >
+                    <CalculatorIcon className="w-6 h-6" />
+                </motion.button>
+
                 {/* Simple Floating Cart Indicator */}
                 <AnimatePresence>
                     {cart.length > 0 && (
@@ -168,7 +191,10 @@ const Cafe = () => {
                             className="fixed bottom-8 right-8 bg-cozy-dark text-white px-6 py-4 rounded-full shadow-xl flex items-center gap-4 z-50"
                         >
                             <ShoppingBag className="w-5 h-5" />
-                            <span className="font-medium">{cart.length} items on tray</span>
+                            <div className="flex flex-col">
+                                <span className="font-medium">{cart.length} items on tray</span>
+                                <span className="text-sm opacity-80">Total: ₹{totalPrice}</span>
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
