@@ -1,46 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  /* Botanical Aesthetic Color Palette */
-  --color-vintage-cream: #ffecf2;
-  /* Light pink background */
-  --color-vintage-beige: #ffffff;
-  /* White for clear contrast in cards */
-  --color-vintage-brown: #cd6184;
-  /* Dark pink for secondary text */
-  --color-vintage-dark-brown: #254117;
-  /* Dark green for primary backgrounds/text */
-  --color-vintage-tan: rgba(151, 162, 115, 0.3);
-  /* Moss green fade for borders */
-  --color-vintage-gold: #ffbd59;
-  /* Yellow-Orange */
-  --color-vintage-rose: #cd6184;
-  /* Dark pink for accents */
-  --color-vintage-mauve: #97a273;
-  /* Moss green */
-  --color-vintage-olive: #97a273;
-  /* Moss green */
-  --color-vintage-sage: #97a273;
-  /* Moss green */
-  --color-vintage-charcoal: #254117;
-  /* Dark green ink */
-  --color-vintage-paper: #ffffff;
-  /* pure white for cards */
-  --color-vintage-sepia: #254117;
-  /* Dark green for text */
+  /* Base Vintage Colors */
+  --color-vintage-cream: #FFFBEF;
+  --color-vintage-beige: #FFFBEF;
+  --color-vintage-brown: #D56B8D;
+  --color-vintage-dark-brown: #6A7B39;
+  --color-vintage-tan: rgba(234, 211, 138, 0.3);
+  --color-vintage-gold: #EAD38A;
+  --color-vintage-rose: #D56B8D;
+  --color-vintage-mauve: #6A7B39;
+  --color-vintage-olive: #6A7B39;
+  --color-vintage-sage: #6A7B39;
+  --color-vintage-charcoal: #6A7B39;
+  --color-vintage-paper: #FFFBEF;
+  --color-vintage-sepia: #6A7B39;
 
-  /* Original cozy colors preserved but updated to match aesthetic */
-  --color-cozy-dark: #254117;
-  --color-cozy-moss: #97a273;
-  --color-cozy-beige: #ffecf2;
-  --color-cozy-rosy: #cd6184;
-  --color-cozy-midnight: #105666;
-  --color-cozy-cream: #ffffff;
+  /* Cozy Colors mapping to the new palette */
+  --color-cozy-dark: #6A7B39;
+  /* Olive Green */
+  --color-cozy-moss: #6A7B39;
+  /* Olive Green */
+  --color-cozy-beige: #FFFBEF;
+  /* Soft Cream */
+  --color-cozy-rosy: #D56B8D;
+  /* Dusky Pink */
+  --color-cozy-midnight: #6A7B39;
+  --color-cozy-cream: #FFFBEF;
+  /* Soft Cream */
   --color-cozy-gray: #C1BEB9;
-  --color-cozy-gold: #ffbd59;
+  --color-cozy-gold: #e4db87;
+  /* Palette Yellow */
+  --color-cozy-blue: #90B3D5;
+  /* Palette Blue */
   --color-cozy-pale-silver: #DBBABF;
-  --color-cozy-china-rose: #B05276;
-  --color-cozy-burgundy: #7D0531;
+  --color-cozy-china-rose: #D56B8D;
+  --color-cozy-burgundy: #D56B8D;
 
   --font-family-sans: 'Jost', sans-serif;
   --font-family-serif: 'Cormorant Garamond', serif;

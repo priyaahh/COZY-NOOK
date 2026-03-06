@@ -52,7 +52,7 @@ const featuredItems = [
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-vintage-cream vintage-texture">
+        <div className="min-h-screen bg-[#e8f2e9] vintage-texture">
             {/* Hero Section */}
             <section
                 className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden pt-[80px] bg-no-repeat"
@@ -64,41 +64,26 @@ const Home = () => {
                 }}
             >
                 {/* The text container mapped roughly to the white card coordinates in the background image */}
-                <div className="relative z-10 flex flex-col items-center justify-center text-center w-[90%] md:w-[60%] max-w-[500px] mt-[-20px] md:mt-[-40px]">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center w-[90%] md:w-[60%] max-w-[650px] mt-[-20px] md:mt-[-40px]">
                     <div className="font-sans text-cozy-moss text-xs font-semibold tracking-[3px] uppercase mb-4 mt-8">✦ A Quiet Escape From The Ordinary ✦</div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-[5.5rem] leading-none font-serif font-bold text-cozy-dark mb-4 drop-shadow-sm"
+                        className="text-6xl md:text-[6.5rem] lg:text-[7rem] leading-none font-serif font-bold text-cozy-dark mb-4 drop-shadow-sm"
                     >
-                        Cozy<em className="font-script text-[1.25em] font-normal text-cozy-rosy px-1 not-italic">Nook</em>
+                        Cozy<em className="font-script font-normal text-cozy-rosy px-2 not-italic">Nook</em>
                     </motion.h1>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="flex flex-row flex-wrap gap-3 sm:gap-4 justify-center w-full mt-4"
-                    >
-                        <Link to="/bookstore" className="bg-transparent border-2 border-cozy-moss text-cozy-moss px-4 sm:px-6 py-2 font-sans font-bold text-[0.85rem] tracking-[2px] uppercase rounded-[50px] transition-all hover:bg-cozy-moss hover:text-white shadow-none">
-                            📚 Books
-                        </Link>
-                        <Link to="/cafe" className="bg-transparent border-2 border-cozy-gold text-cozy-dark px-4 sm:px-6 py-2 font-sans font-bold text-[0.85rem] tracking-[2px] uppercase rounded-[50px] transition-all hover:bg-cozy-gold hover:text-white shadow-none">
-                            🥐 Bakery
-                        </Link>
-                        <Link to="/flowers" className="bg-transparent border-2 border-cozy-rosy text-cozy-rosy px-4 sm:px-6 py-2 font-sans font-bold text-[0.85rem] tracking-[2px] uppercase rounded-[50px] transition-all hover:bg-cozy-rosy hover:text-white shadow-none">
-                            🌸 Blooms
-                        </Link>
-                    </motion.div>
+
                 </div>
             </section>
 
             {/* Features Grid */}
-            <section className="py-20 px-4 bg-cozy-cream">
+            <section className="py-20 px-4 bg-[#f4f9f4]">
                 <div className="container mx-auto text-center mb-12">
                     <div className="inline-block font-sans text-[0.8rem] tracking-[3px] font-medium uppercase text-cozy-dark mb-4 px-5 py-1.5 border border-cozy-dark rounded-[30px]">Welcome</div>
-                    <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-semibold text-cozy-dark leading-[1.1]">Your <em className="font-script text-[1.4em] font-normal text-cozy-rosy not-italic px-2 lowercase">forever</em> dream space</h2>
+                    <h2 className="font-sans text-xs font-semibold tracking-[3px] uppercase text-cozy-dark leading-[1.3] mb-4">✦ Your forever dream space ✦</h2>
                     <p className="font-sans text-[1.05rem] text-cozy-dark mt-5 max-w-[550px] mx-auto leading-[1.7]">A bookstore, bakery & flower shop — all under one roof. Come for the books, stay for the croissants, leave with flowers.</p>
                 </div>
                 <div className="container mx-auto max-w-7xl">
@@ -107,7 +92,7 @@ const Home = () => {
                             {
                                 title: "The Bindery",
                                 desc: "Curated shelves of second-hand & new books. Get a fresh recommendation every hour — timed drops, like a bookish surprise box.",
-                                icon: "📚",
+                                icon: "/images/books_icon.jpg",
                                 link: "/bookstore",
                                 color: "bg-white",
                                 hoverLine: "before:bg-cozy-moss"
@@ -115,7 +100,7 @@ const Home = () => {
                             {
                                 title: "The Nook Café",
                                 desc: "Sourdough loaves, flaky croissants, fig tarts & specialty coffee. Fresh from the oven every morning. Daily specials change with the weather.",
-                                icon: "🥐",
+                                icon: "/images/bakery_icon.jpg",
                                 link: "/cafe",
                                 color: "bg-white",
                                 hoverLine: "before:bg-cozy-gold"
@@ -123,7 +108,7 @@ const Home = () => {
                             {
                                 title: "Petal Studio",
                                 desc: "Hand-pick stems, choose your wrapping, add a ribbon & a note. Build your own bouquet or let us arrange something seasonal for you.",
-                                icon: "🌸",
+                                icon: "/images/floral_icon.jpg",
                                 link: "/flowers",
                                 color: "bg-white",
                                 hoverLine: "before:bg-cozy-rosy"
@@ -134,7 +119,9 @@ const Home = () => {
                                 whileHover={{ y: -6 }}
                                 className={`group ${feature.color} p-12 lg:p-[60px_50px] cursor-pointer relative overflow-hidden transition-all duration-400 before:absolute before:bottom-0 before:left-0 before:right-0 before:h-[6px] before:transition-[height] before:duration-400 hover:before:h-full ${feature.hoverLine}`}
                             >
-                                <div className="text-5xl mb-6 relative z-10 transition-transform duration-400 group-hover:scale-110 group-hover:text-white">{feature.icon}</div>
+                                <div className="mb-6 relative z-10 transition-transform duration-400 group-hover:scale-110 h-20 w-20 flex mix-blend-multiply">
+                                    <img src={feature.icon} alt={feature.title} className="w-full h-full object-contain" />
+                                </div>
                                 <h3 className="text-[2.2rem] font-serif font-semibold text-cozy-dark mb-3 relative z-10 transition-colors duration-400 group-hover:text-white">{feature.title}</h3>
                                 <p className="font-sans text-[0.95rem] text-cozy-dark leading-[1.7] relative z-10 transition-colors duration-400 group-hover:text-white/90">{feature.desc}</p>
                                 <Link to={feature.link} className={`inline-block mt-6 font-sans text-[0.85rem] font-medium tracking-[2px] uppercase text-cozy-dark border-b border-cozy-dark pb-1 relative z-10 transition-colors duration-400 group-hover:text-white group-hover:border-white hover:opacity-80`}>
@@ -147,7 +134,7 @@ const Home = () => {
             </section>
 
             {/* Featured Hover Cards */}
-            <section className="py-20 px-4 bg-gradient-to-b from-vintage-cream to-vintage-beige vintage-texture">
+            <section className="py-20 px-4 bg-gradient-to-b from-[#e8f2e9] to-[#f4f9f4] vintage-texture">
                 <div className="container mx-auto max-w-6xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

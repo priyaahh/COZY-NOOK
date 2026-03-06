@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home as HomeIcon, Book, Coffee, Flower2 } from 'lucide-react';
 import logo from '../assets/cozynook_logo.png';
 
 const Navbar = () => {
@@ -8,21 +8,45 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const navItems = [
-        { path: '/', label: 'Home' },
-        { path: '/bookstore', label: '📚 Bookstore' },
-        { path: '/cafe', label: '🥐 Bakery' },
-        { path: '/flowers', label: '🌸 Flower Shop' },
+        {
+            path: '/',
+            label: 'Home',
+            iconComponent: HomeIcon,
+            baseClass: 'border-[var(--color-cozy-moss)] text-[var(--color-cozy-moss)] hover:bg-[var(--color-cozy-moss)] hover:text-white',
+            activeClass: 'bg-[var(--color-cozy-moss)] border-[var(--color-cozy-moss)] text-white'
+        },
+        {
+            path: '/bookstore',
+            label: 'Books',
+            icon: '/images/books_icon.jpg',
+            baseClass: 'border-[var(--color-cozy-blue)] text-[var(--color-cozy-blue)] hover:bg-[var(--color-cozy-blue)] hover:text-[var(--color-cozy-dark)]',
+            activeClass: 'bg-[var(--color-cozy-blue)] border-[var(--color-cozy-blue)] text-[var(--color-cozy-dark)]'
+        },
+        {
+            path: '/cafe',
+            label: 'Bakery',
+            icon: '/images/bakery_icon.jpg',
+            baseClass: 'border-[var(--color-cozy-gold)] text-[var(--color-cozy-gold)] hover:bg-[var(--color-cozy-gold)] hover:text-[var(--color-cozy-dark)]',
+            activeClass: 'bg-[var(--color-cozy-gold)] border-[var(--color-cozy-gold)] text-[var(--color-cozy-dark)]'
+        },
+        {
+            path: '/flowers',
+            label: 'Blooms',
+            icon: '/images/floral_icon.jpg',
+            baseClass: 'border-[var(--color-cozy-rosy)] text-[var(--color-cozy-rosy)] hover:bg-[var(--color-cozy-rosy)] hover:text-white',
+            activeClass: 'bg-[var(--color-cozy-rosy)] border-[var(--color-cozy-rosy)] text-white'
+        },
     ];
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-[1000] bg-cozy-dark flex items-center justify-between px-6 md:px-10 py-3.5 border-b-2 border-cozy-gold transition-all duration-300">
+            <nav className="fixed top-0 left-0 right-0 z-[1000] bg-[var(--color-cozy-cream)] flex items-center justify-between px-6 md:px-10 py-3.5 border-b-2 border-[var(--color-cozy-moss)] transition-all duration-300">
                 {/* Logo */}
                 <div className="flex-shrink-0 flex items-center">
-                    <Link to="/" className="font-serif text-[2.2rem] font-semibold text-cozy-cream tracking-[1px] flex items-center gap-3">
-                        <img src={logo} alt="Cozy Nook Logo" className="w-12 h-12 object-contain brightness-0 invert" />
+                    <Link to="/" className="font-serif text-[2.2rem] font-semibold text-[var(--color-cozy-dark)] tracking-[1px] flex items-center gap-3">
+                        <img src={logo} alt="Cozy Nook Logo" className="w-12 h-12 object-contain filter drop-shadow-sm" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(34%) saturate(718%) hue-rotate(43deg) brightness(96%) contrast(85%)' }} />
                         <div className="flex items-baseline max-sm:hidden">
-                            Cozy<span className="font-script text-cozy-gold text-[1.25em] font-normal leading-none ml-[2px] tracking-normal mb-[-4px]">Nook</span>
+                            Cozy<span className="font-script text-[var(--color-cozy-rosy)] font-normal leading-none ml-[2px] tracking-normal mb-[-4px]">Nook</span>
                         </div>
                     </Link>
                 </div>
@@ -35,9 +59,10 @@ const Navbar = () => {
                             <li key={item.path}>
                                 <Link
                                     to={item.path}
-                                    className={`text-[1.1rem] font-serif font-semibold tracking-[1px] uppercase transition-colors duration-200 hover:text-cozy-gold ${isActive ? 'text-cozy-gold' : 'text-white'
-                                        }`}
+                                    className={`bg-transparent border-2 px-5 sm:px-7 py-1.5 font-sans font-bold text-[1.15rem] tracking-[2px] uppercase rounded-[50px] transition-all shadow-none flex items-center gap-3 ${isActive ? item.activeClass : item.baseClass}`}
                                 >
+                                    {item.icon && <img src={item.icon} alt="" className="w-8 h-8 object-cover rounded mix-blend-multiply" />}
+                                    {item.iconComponent && <item.iconComponent className="w-8 h-8" strokeWidth={2.5} />}
                                     {item.label}
                                 </Link>
                             </li>
@@ -50,7 +75,7 @@ const Navbar = () => {
                 <div className="md:hidden flex items-center">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-cozy-cream hover:text-cozy-gold focus:outline-none"
+                        className="text-[var(--color-cozy-dark)] hover:text-[var(--color-cozy-rosy)] focus:outline-none"
                     >
                         {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
@@ -58,7 +83,7 @@ const Navbar = () => {
 
                 {/* Mobile Nav Dropdown */}
                 {isOpen && (
-                    <div className="absolute top-full left-0 right-0 bg-cozy-dark border-b-2 border-cozy-gold shadow-lg md:hidden flex flex-col pt-4 pb-6 px-6 gap-4">
+                    <div className="absolute top-full left-0 right-0 bg-[var(--color-cozy-cream)] border-b-2 border-[var(--color-cozy-moss)] shadow-lg md:hidden flex flex-col pt-4 pb-6 px-6 gap-4">
                         {navItems.map((item) => {
                             const isActive = location.pathname === item.path;
                             return (
@@ -66,9 +91,10 @@ const Navbar = () => {
                                     key={item.path}
                                     to={item.path}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-[1.1rem] font-serif font-semibold tracking-[1px] uppercase transition-colors duration-200 hover:text-cozy-gold py-2 border-b border-cozy-moss/30 ${isActive ? 'text-cozy-gold' : 'text-white'
-                                        }`}
+                                    className={`bg-transparent border-2 px-5 sm:px-7 py-2.5 font-sans font-bold text-[1.2rem] tracking-[2px] uppercase rounded-[50px] transition-all shadow-none flex items-center justify-center gap-4 ${isActive ? item.activeClass : item.baseClass}`}
                                 >
+                                    {item.icon && <img src={item.icon} alt="" className="w-9 h-9 object-cover rounded mix-blend-multiply" />}
+                                    {item.iconComponent && <item.iconComponent className="w-9 h-9" strokeWidth={2.5} />}
                                     {item.label}
                                 </Link>
                             );

@@ -7,7 +7,7 @@ const THEMES = {
     default: {
         bg: 'bg-cozy-beige',
         text: 'text-cozy-dark',
-        accent: 'bg-cozy-rosy',
+        accent: 'bg-cozy-gold',
         card: 'bg-white',
         name: 'Cozy Day'
     },
@@ -127,7 +127,16 @@ const Bookstore = () => {
     const theme = THEMES[currentTheme];
 
     return (
-        <div className={clsx("min-h-screen pt-24 px-4 pb-20 transition-colors duration-500", theme.bg)}>
+        <div
+            className={clsx("min-h-screen pt-24 px-4 pb-20 transition-colors duration-500", theme.bg)}
+            style={{
+                backgroundImage: "url('/images/bookstore_bg.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
             <div className="container mx-auto max-w-6xl">
 
                 {/* Header & Theme Switcher */}
