@@ -12,28 +12,28 @@ const Navbar = () => {
             path: '/',
             label: 'Home',
             iconComponent: HomeIcon,
-            baseClass: 'border-[var(--color-cozy-moss)] text-[var(--color-cozy-moss)] hover:bg-[var(--color-cozy-moss)] hover:text-white',
+            baseClass: 'border-[var(--color-cozy-moss)] text-[var(--color-cozy-moss)] hover:bg-[var(--color-cozy-moss)]',
             activeClass: 'bg-[var(--color-cozy-moss)] border-[var(--color-cozy-moss)] text-white'
         },
         {
             path: '/bookstore',
             label: 'Books',
             icon: '/images/books_icon.jpg',
-            baseClass: 'border-[var(--color-cozy-blue)] text-[var(--color-cozy-blue)] hover:bg-[var(--color-cozy-blue)] hover:text-[var(--color-cozy-dark)]',
-            activeClass: 'bg-[var(--color-cozy-blue)] border-[var(--color-cozy-blue)] text-[var(--color-cozy-dark)]'
+            baseClass: 'border-[var(--color-cozy-blue)] text-[var(--color-cozy-blue)] hover:bg-[var(--color-cozy-blue)]',
+            activeClass: 'bg-[var(--color-cozy-blue)] border-[var(--color-cozy-blue)] text-white'
         },
         {
             path: '/cafe',
             label: 'Bakery',
             icon: '/images/bakery_icon.jpg',
-            baseClass: 'border-[var(--color-cozy-gold)] text-[var(--color-cozy-gold)] hover:bg-[var(--color-cozy-gold)] hover:text-[var(--color-cozy-dark)]',
-            activeClass: 'bg-[var(--color-cozy-gold)] border-[var(--color-cozy-gold)] text-[var(--color-cozy-dark)]'
+            baseClass: 'border-[var(--color-cozy-gold)] text-[var(--color-cozy-gold)] hover:bg-[var(--color-cozy-gold)]',
+            activeClass: 'bg-[var(--color-cozy-gold)] border-[var(--color-cozy-gold)] text-white'
         },
         {
             path: '/flowers',
             label: 'Blooms',
             icon: '/images/floral_icon.jpg',
-            baseClass: 'border-[var(--color-cozy-rosy)] text-[var(--color-cozy-rosy)] hover:bg-[var(--color-cozy-rosy)] hover:text-white',
+            baseClass: 'border-[var(--color-cozy-rosy)] text-[var(--color-cozy-rosy)] hover:bg-[var(--color-cozy-rosy)]',
             activeClass: 'bg-[var(--color-cozy-rosy)] border-[var(--color-cozy-rosy)] text-white'
         },
     ];
@@ -52,23 +52,34 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Nav */}
-                <ul className="hidden md:flex list-none gap-[30px] items-center m-0 p-0">
+                <ul className="hidden md:flex list-none gap-[24px] items-center m-0 p-0">
                     {navItems.map((item) => {
                         const isActive = location.pathname === item.path;
                         return (
                             <li key={item.path}>
                                 <Link
                                     to={item.path}
-                                    className={`bg-transparent border-2 px-5 sm:px-7 py-1.5 font-sans font-bold text-[1.15rem] tracking-[2px] uppercase rounded-[50px] transition-all shadow-none flex items-center gap-3 ${isActive ? item.activeClass : item.baseClass}`}
+                                    className={`border-2 px-4 py-1 font-sans font-semibold text-[1rem] tracking-[1.5px] uppercase rounded-[40px] transition-all duration-200 flex items-center gap-2
+                                    ${isActive
+                                            ? `${item.activeClass} text-white`
+                                            : `${item.baseClass} hover:text-white`
+                                        }`}
                                 >
-                                    {item.icon && <img src={item.icon} alt="" className="w-8 h-8 object-cover rounded mix-blend-multiply" />}
-                                    {item.iconComponent && <item.iconComponent className="w-8 h-8" strokeWidth={2.5} />}
+                                    {item.icon && (
+                                        <img
+                                            src={item.icon}
+                                            alt=""
+                                            className="w-6 h-6 object-cover rounded mix-blend-multiply"
+                                        />
+                                    )}
+                                    {item.iconComponent && (
+                                        <item.iconComponent className="w-6 h-6" strokeWidth={2.2} />
+                                    )}
                                     {item.label}
                                 </Link>
                             </li>
                         );
                     })}
-
                 </ul>
 
                 {/* Mobile Menu Toggle */}

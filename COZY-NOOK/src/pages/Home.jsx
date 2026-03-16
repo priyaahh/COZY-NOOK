@@ -94,8 +94,8 @@ const Home = () => {
                                 desc: "Curated shelves of second-hand & new books. Get a fresh recommendation every hour — timed drops, like a bookish surprise box.",
                                 icon: "/images/books_icon.jpg",
                                 link: "/bookstore",
-                                color: "bg-white",
-                                hoverLine: "before:bg-cozy-moss"
+                                color: "bg-white active:bg-cozy-blue focus:bg-cozy-blue",
+                                hoverLine: "before:bg-cozy-blue"
                             },
                             {
                                 title: "The Nook Café",
